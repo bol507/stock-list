@@ -1,10 +1,15 @@
+import { AppLayout } from "../layouts/app-layout"
+
 
 
 const HomePage =() => {
   return(
-    <div>
-      home page
-    </div>
+    <AppLayout>
+      <div className="" >
+        home pagegsfgsdfg
+      </div>
+    </AppLayout>
+   
   )
 }
 

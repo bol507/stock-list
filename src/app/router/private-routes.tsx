@@ -3,13 +3,10 @@ import HomePage from "../home/page";
 
 const PrivateRoutes = () => {
   return (
-    
-      
-    <Routes>  
-    <Route index element={<Navigate to="/home" />} />
-    <Route path="home" element={<HomePage />} />
+    <Routes>
+      <Route index element={<Navigate to="/home" />} />
+      <Route path="home" element={<HomePage />} />
     </Routes>
-    
   );
 };
 
