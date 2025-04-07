@@ -1,5 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar"
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import { ReactNode } from "react"
 
 interface AppLayoutProps  {
@@ -10,10 +10,9 @@ export const AppLayout = ({children}: AppLayoutProps) => {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className=" w-full ">
-        <SidebarTrigger />
+      <div className=" w-full h-dvh grid grid-rows-4 p-3.5 ">
         {children}
-      </main>
+      </div>
     </SidebarProvider>
   )
 }
