@@ -1,11 +1,12 @@
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useIsMobile } from "../hooks/use-mobile";
 import { AppLayout } from "../layouts/app-layout";
 import "./page.css";
 import { Header } from "@/components/home/header";
 import { useEffect, useState } from "react";
+import { Separator } from "@/components/ui/separator";
 
 const HomePage = () => {
-  const [state, setState] = useState(false);
   const isMobile = useIsMobile();
   const [isTablet, setIsTablet] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -21,10 +22,10 @@ const HomePage = () => {
   }, []);
   return (
     <AppLayout>
-      <header className="header">
+      <header className="header border-b ">
+      <SidebarTrigger />
+      <Separator orientation="vertical" />
         <Header
-          state={state}
-          setState={() => setState(!state)}
           isMobile={isMobile}
           isTablet={isTablet}
           isSearchOpen={isSearchOpen}

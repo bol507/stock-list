@@ -2,6 +2,7 @@
   grid-area: header;
   background-color: rgba(103, 93, 241, 0.2);
   color: white;
+  width: 100%;
   display: flex;
 }
 

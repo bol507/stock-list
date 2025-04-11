@@ -1,44 +1,46 @@
-import { useAuth } from "@/modules/auth/hooks/use-auth";
-import { Dispatch } from "react";
-import { SidebarTrigger } from "../ui/sidebar";
+import { Dispatch, Fragment } from "react";
 import { Breadcrumb, BreadcrumbList } from "../ui/breadcrumb";
-import { Separator } from "../ui/separator";
 import PageTitle from "../sidebar/page-title";
+import { MobileSearch } from "./mobile-search";
+import { UserControls } from "./user-control";
+import { DesktopSearch } from "./desktop-search";
 
 interface HeaderProps {
-  state: boolean;
-  setState: Dispatch<React.SetStateAction<boolean>>;
+  isMobile: boolean;
+  isTablet: boolean;
+  isSearchOpen: boolean;
+  setIsSearchOpen: Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Header = ({ state, setState }: HeaderProps) => {
-  //const {signOut} = useUserStore()
-  const { signOut } = useAuth();
-
-  const handleLogout = async () => {
-    await signOut();
-  };
-
+export const Header = ({
+  isMobile,
+  isTablet,
+  isSearchOpen,
+  setIsSearchOpen,
+}: HeaderProps) => {
   return (
-    <header className="flex items-center gap-2 border-b ">
-      <div className="flex items-center gap-2 px-4 w-full">
-        <SidebarTrigger />
-        <Separator orientation="vertical" />
-        <Breadcrumb className="w=full">
-          <BreadcrumbList className="flex items-center justify-between w-full">
-            <h1 className="text-lg font-bold truncate">
-              <PageTitle />
-            </h1>
-            <div className="flex items-center gap-2">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
-                Dashboard
-              </button>
-              <button className="bg-red-500 text-white px-4 py-2 rounded-md">
-                Logout
-              </button>
-            </div>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </div>
-    </header>
+    <Breadcrumb className="w-full h-full">
+      <BreadcrumbList className="flex items-center justify-between w-full h-full px-4">
+        <h1 className="text-lg font-bold truncate">
+          <PageTitle />
+        </h1>
+        <div className="flex items-center ml-auto">
+          {isMobile ? (
+            <Fragment>
+              <MobileSearch
+                isSearchOpen={isSearchOpen}
+                setIsSearchOpen={setIsSearchOpen}
+              />
+              <UserControls compact={isMobile} />
+            </Fragment>
+          ) : (
+            <Fragment>
+              <DesktopSearch isTablet={isTablet} />
+              <UserControls compact={isTablet} />
+            </Fragment>
+          )}
+        </div>
+      </BreadcrumbList>
+    </Breadcrumb>
   );
 };
