@@ -1,24 +1,27 @@
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { AppLayout } from "../layouts/app-layout"
-
+import "./page.css"
+import { Header } from "@/components/home/header"
+import { useState } from "react"
 
 
 const HomePage =() => {
+  const [state, setState] = useState(false)
   return(
     <AppLayout>
-      <header className="bg-[rgba(103,93,241,0.2)] text-white flex">
+      <header className="header">
         <SidebarTrigger />
-        <h1>Home Page</h1>
+        <Header state={state} setState={setState} />
       </header>
-      <section className="bg-[rgba(229,67,26,0.2)] text-white flex">
+      <section className="section-1">
         <h2>Section 1</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatibus.</p>
       </section>
-      <section className="bg-[rgba(77,237,106,0.2)] text-white flex">
+      <section className="section-2">
         <h2>Section 2</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatibus.</p>
       </section>
-      <main className="bg-[rgba(179,46,241,0.2)] text-white flex">
+      <main className="main">
         <h2>Main</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatibus.</p>
       </main>

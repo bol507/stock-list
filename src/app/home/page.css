@@ -1,0 +1,27 @@
+.header {
+  grid-area: header;
+  background-color: rgba(103, 93, 241, 0.2);
+  color: white;
+  display: flex;
+}
+
+.section-1 {
+  grid-area: section-1;
+  background-color: rgba(229, 67, 26, 0.2);
+  color: white;
+  display: flex;
+}
+
+.section-2 {
+  grid-area: section-2;
+  background-color: rgba(77, 237, 106, 0.2);
+  color: white;
+  display: flex;
+}
+
+.main {
+  grid-area: main;
+  background-color: rgba(179, 46, 241, 0.2);
+  color: white;
+  display: flex;
+}
