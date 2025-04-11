@@ -2,7 +2,7 @@ export const API = import.meta.env.DEBUG
 	?  import.meta.env.VITE_BACKEND_SERVER
 	: "/"; 
 
-export const baseUrl = "api/v1";
+export const BASE_URL = "api/v1";
 export const GithubClientId = encodeURIComponent(
 	import.meta.env.VITE_GITHUB_CLIENT_ID,
 );
