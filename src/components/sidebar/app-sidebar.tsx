@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
-} from "./ui/sidebar";
+} from "../ui/sidebar";
 
 export const AppSidebar = () => {
   const links = [

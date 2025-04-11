@@ -1,4 +1,4 @@
-import { SidebarTrigger } from "@/components/ui/sidebar"
+
 import { AppLayout } from "../layouts/app-layout"
 import "./page.css"
 import { Header } from "@/components/home/header"
@@ -10,8 +10,7 @@ const HomePage =() => {
   return(
     <AppLayout>
       <header className="header">
-        <SidebarTrigger />
-        <Header state={state} setState={setState} />
+        <Header state={state} setState={() => setState(!state)} />
       </header>
       <section className="section-1">
         <h2>Section 1</h2>

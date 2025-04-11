@@ -17,6 +17,6 @@ export interface User {
 }
 
 export interface UserStore {
-  user: User
-  setUser: (value: User) => void;
+  user: User | null;
+  setUser: (value: User | null) => void;
 }

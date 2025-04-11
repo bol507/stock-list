@@ -7,6 +7,7 @@ import { useUserStore } from "@/app/store/user-store";
 export const useAuth = () => {
   const navigate = useNavigate();
   const setUser = useUserStore((state) => state.setUser);
+  const user = useUserStore((state) => state.user);
 
   const credentialsMutation = useMutation({
     mutationFn: async (variables: Credentials) => {
@@ -40,6 +41,10 @@ export const useAuth = () => {
         break;
 
       case "github":
+        requestData = {
+          redirectTo: (params as OAuth).redirectTo,
+        };
+        break;
       case "google":
         requestData = {
           redirectTo: (params as OAuth).redirectTo,
@@ -51,7 +56,14 @@ export const useAuth = () => {
     }
   };
 
+  const signOut = async () => {
+    setUser(null);
+    localStorage.removeItem("token");
+  };
+
   return {
     signIn,
+    user,
+    signOut,
   };
 }; //end useAuth

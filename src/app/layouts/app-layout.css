@@ -4,7 +4,7 @@
   height: 100vh;
   padding: 1rem;
   grid-template: 
-    "header" 100px
+    "header" 3.5rem
     "section-1" 100px
     "section-2" 100px
     "main" auto;
