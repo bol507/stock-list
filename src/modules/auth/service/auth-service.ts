@@ -1,6 +1,6 @@
 import api from "@/app/config/axiosConfig";
 import { handleError } from "@/lib/handleError";
-import { SignIn, SignUp, User } from "../../user/interfaces/user.inteface";
+import { SignIn, SignUp, User } from "../../user/interfaces/user-inteface";
 
 interface AuthResponse {
   user: User;

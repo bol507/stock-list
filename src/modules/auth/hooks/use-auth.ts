@@ -2,12 +2,12 @@ import { useMutation } from "@tanstack/react-query";
 import AuthService from "../service/auth-service";
 import { Credentials, OAuth, SignInParams } from "../interfaces/auth-interface";
 import { useNavigate } from "react-router";
-import { useUserStore } from "@/app/store/user-store";
+import { useAuthStore } from "@/modules/auth/store/auth-store";
 
 export const useAuth = () => {
   const navigate = useNavigate();
-  const setUser = useUserStore((state) => state.setUser);
-  const user = useUserStore((state) => state.user);
+  const setUser = useAuthStore((state) => state.setUser);
+
 
   const credentialsMutation = useMutation({
     mutationFn: async (variables: Credentials) => {
@@ -63,7 +63,6 @@ export const useAuth = () => {
 
   return {
     signIn,
-    user,
     signOut,
   };
 }; //end useAuth
