@@ -23,7 +23,7 @@ const UsersApi: StateCreator<UserStore, [["zustand/devtools", never]]> = (
 		),
 });
 
-export const useUsersStore = create<UserStore>()(
+export const useUserStore = create<UserStore>()(
 	devtools(
 		persist(UsersApi, {
 			name: "user-store",
