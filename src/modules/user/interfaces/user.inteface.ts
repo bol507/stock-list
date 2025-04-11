@@ -15,3 +15,8 @@ export interface User {
   password?: string;
   name?: string;
 }
+
+export interface UserStore {
+  user: User
+  setUser: (value: User) => void;
+}
