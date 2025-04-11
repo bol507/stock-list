@@ -1,3 +1,5 @@
+import { User } from "@/modules/user/interfaces/user-inteface";
+
 export interface Credentials {
   email: string;
   password: string;
@@ -9,3 +11,8 @@ export interface OAuth {
 }
 
 export type SignInParams = Credentials | OAuth;
+
+export interface AuthStore {
+	user: User | null;	
+	setUser: (value: User | null) => void;
+}
