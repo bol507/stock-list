@@ -4,6 +4,7 @@ export interface Credentials {
   email: string;
   password: string;
   redirectTo: string;
+  name?: string;
 }
 
 export interface OAuth {

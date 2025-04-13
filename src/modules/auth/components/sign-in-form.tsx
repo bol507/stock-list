@@ -3,9 +3,13 @@ import { EyeClosedIcon, EyeIcon } from "lucide-react";
 import { SignInFormContainer } from "./sign-in-form-container";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { FormError } from "@/components/form-error";
+import { FormSuccess } from "@/components/form-success";
+
+
 
 export const SignInForm = () => {
-	const { form, isPending, showPassword, handleClickShowPassword, onSubmit } =
+	const { form, isPending, showPassword, handleClickShowPassword, onSubmit, error, urlError, success } =
 		SignInFormContainer();
 
 	return (
@@ -63,8 +67,8 @@ export const SignInForm = () => {
 							</FormItem>
 						)}
 					/>
-					<FormError />
-					<FormSuccess />
+					<FormError message={error || urlError} />
+					<FormSuccess message={success} />
 					<button
 						type="submit"
 						className={`w-full py-2 mt-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-hidden focus:ring-3 focus:ring-blue-300 ${isPending ? "opacity-50 cursor-not-allowed" : ""
