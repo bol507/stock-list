@@ -20,7 +20,9 @@ export const useAuth = () => {
       setUser(data.user);
       navigate(variables.redirectTo);
     },
-    onError: () => {},
+    onError: (error: unknown) => {
+      console.log(error);
+    },
     onSettled: () => {},
   });
 

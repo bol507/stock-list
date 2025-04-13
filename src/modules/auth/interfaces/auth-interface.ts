@@ -16,3 +16,5 @@ export interface AuthStore {
 	user: User | null;	
 	setUser: (value: User | null) => void;
 }
+
+export type SignInFlow = "signUp" | "signIn";
