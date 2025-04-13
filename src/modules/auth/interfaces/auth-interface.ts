@@ -7,6 +7,8 @@ export interface Credentials {
   name?: string;
 }
 
+export type SignUpCredentials = Omit<Credentials, 'name'> & { name: string };
+
 export interface OAuth {
   redirectTo: string;
 }
